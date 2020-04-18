@@ -4,6 +4,7 @@
     <link>/docs/identity-server/</link>
     <description>Recent content in Identity Server on Coretronic Cloud Platform Docs</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 26 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	  <atom:link href="/docs/identity-server/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,7 +17,7 @@
     <item>
       <title>Docs: Identity Server Specifications &amp; Flows</title>
       <link>/docs/identity-server/identity-server-specifications-flows/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/docs/identity-server/identity-server-specifications-flows/</guid>
       <description>
@@ -69,7 +70,7 @@ An access token allows access to an API resource. Clients request access tokens 
     <item>
       <title>Docs: Authentication and Authorization Flows</title>
       <link>/docs/identity-server/authentication-and-authorization-flows/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/docs/identity-server/authentication-and-authorization-flows/</guid>
       <description>
@@ -165,7 +166,7 @@ Resource Server--&amp;gt;&amp;gt;Client: 5. Response with Data
     <item>
       <title>Docs: Defining Resources</title>
       <link>/docs/identity-server/defining-resources/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/docs/identity-server/defining-resources/</guid>
       <description>
@@ -181,7 +182,7 @@ Resource Server--&amp;gt;&amp;gt;Client: 5. Response with Data
     <item>
       <title>Docs: Defining Clients</title>
       <link>/docs/identity-server/defining-clients/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/docs/identity-server/defining-clients/</guid>
       <description>
