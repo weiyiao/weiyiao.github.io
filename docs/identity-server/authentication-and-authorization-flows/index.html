@@ -22,24 +22,24 @@
 
 <title>Authentication and Authorization Flows | Coretronic Cloud Platform Docs</title><meta property="og:title" content="Authentication and Authorization Flows" />
 <meta property="og:description" content="Grant Types Grant types are a way to specify how a client wants to interact with IdentityServer. The OpenID Connect and OAuth 2 specs define the following grant types:
- Implicit: used with Mobile Apps or Web Applications (applications that run on the user&rsquo;s device)  Title: Implicit Resource Owner-&gt;Client: 1. Click login link Client-&gt;Authorization Server: 2. Credential Request to /authorize Authorization Server-&gt;Resource Owner: 3. Redirect to login /authorization prompt Resource Owner-&gt;Authorization Server: 4." />
+ Implicit: used with Mobile Apps or Web Applications (applications that run on the user&rsquo;s device)  sequenceDiagram Title: Implicit Resource Owner-&gt;Client: 1. Click login link Client-&gt;Authorization Server: 2. Credential Request to /authorize Authorization Server-&gt;Resource Owner: 3. Redirect to login /authorization prompt Resource Owner-&gt;Authorization Server: 4." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/identity-server/authentication-and-authorization-flows/" />
 <meta property="article:published_time" content="2019-08-26T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-08-26T00:00:00+00:00" /><meta property="og:site_name" content="Coretronic Cloud Platform Docs" />
 <meta itemprop="name" content="Authentication and Authorization Flows">
 <meta itemprop="description" content="Grant Types Grant types are a way to specify how a client wants to interact with IdentityServer. The OpenID Connect and OAuth 2 specs define the following grant types:
- Implicit: used with Mobile Apps or Web Applications (applications that run on the user&rsquo;s device)  Title: Implicit Resource Owner-&gt;Client: 1. Click login link Client-&gt;Authorization Server: 2. Credential Request to /authorize Authorization Server-&gt;Resource Owner: 3. Redirect to login /authorization prompt Resource Owner-&gt;Authorization Server: 4.">
+ Implicit: used with Mobile Apps or Web Applications (applications that run on the user&rsquo;s device)  sequenceDiagram Title: Implicit Resource Owner-&gt;Client: 1. Click login link Client-&gt;Authorization Server: 2. Credential Request to /authorize Authorization Server-&gt;Resource Owner: 3. Redirect to login /authorization prompt Resource Owner-&gt;Authorization Server: 4.">
 <meta itemprop="datePublished" content="2019-08-26T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="527">
+<meta itemprop="wordCount" content="532">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Authentication and Authorization Flows"/>
 <meta name="twitter:description" content="Grant Types Grant types are a way to specify how a client wants to interact with IdentityServer. The OpenID Connect and OAuth 2 specs define the following grant types:
- Implicit: used with Mobile Apps or Web Applications (applications that run on the user&rsquo;s device)  Title: Implicit Resource Owner-&gt;Client: 1. Click login link Client-&gt;Authorization Server: 2. Credential Request to /authorize Authorization Server-&gt;Resource Owner: 3. Redirect to login /authorization prompt Resource Owner-&gt;Authorization Server: 4."/>
+ Implicit: used with Mobile Apps or Web Applications (applications that run on the user&rsquo;s device)  sequenceDiagram Title: Implicit Resource Owner-&gt;Client: 1. Click login link Client-&gt;Authorization Server: 2. Credential Request to /authorize Authorization Server-&gt;Resource Owner: 3. Redirect to login /authorization prompt Resource Owner-&gt;Authorization Server: 4."/>
 
 
 
@@ -272,7 +272,8 @@ The OpenID Connect and OAuth 2 specs define the following grant types:</p>
 <ul>
 <li><strong>Implicit</strong>: used with Mobile Apps or Web Applications (applications that run on the user&rsquo;s device)</li>
 </ul>
-<pre><code class="language-sequence" data-lang="sequence">Title: Implicit
+<pre><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+Title: Implicit
 Resource Owner-&gt;Client: 1. Click login link
 Client-&gt;Authorization Server: 2. Credential Request to /authorize
 Authorization Server-&gt;Resource Owner: 3. Redirect to login /authorization prompt
@@ -283,7 +284,8 @@ Resource Server-&gt;Client: 7. Response
 </code></pre><ul>
 <li><strong>Client Credentials</strong>: used with Applications API access</li>
 </ul>
-<pre><code class="language-sequence" data-lang="sequence">Title: Client Credentials
+<pre><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+Title: Client Credentials
 
 Client-&gt;Authorization Server: 1. Authenticate with Client ID + Client Secret to /token
 Authorization Server-&gt;Authorization Server: 2. Validate Client ID + Client Secret
@@ -293,7 +295,8 @@ Resource Server-&gt;Client: 5. Response
 </code></pre><ul>
 <li><strong>Authorization Code</strong> : used with server-side Applications</li>
 </ul>
-<pre><code class="language-sequence" data-lang="sequence">Title: Authorization code
+<pre><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+Title: Authorization code
 Resource Owner-&gt;Client: 1. Click login link
 Client-&gt;Authorization Server: 2. Authorization Code Request to /authorize
 Authorization Server-&gt;Resource Owner: 3. Redirect to login /authorization prompt
@@ -308,7 +311,8 @@ Resource Server-&gt;Client: 10. Response
 </code></pre><ul>
 <li><strong>Authorization Code Flow with Proof Key for Code Exchange (PKCE)</strong></li>
 </ul>
-<pre><code class="language-sequence" data-lang="sequence">Title: Authorization Code Flow with Proof Key for Code Exchange (PKCE)
+<pre><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+Title: Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 Resource Owner-&gt;Client: 1. Click login link
 Client-&gt;Client: 2. Generate Code Verifier and Code Challenge 
 Client-&gt;Authorization Server: 3. Authorization Code Request + Code Challenge to /authorize
@@ -323,7 +327,8 @@ Resource Server-&gt;Client: 11. Response
 </code></pre><ul>
 <li><strong>Resource Owner Password Credentials Grant</strong> : used with trusted Applications, such as those owned by the service itself</li>
 </ul>
-<pre><code class="language-sequence" data-lang="sequence">Title: Resource Owner Password Credentials Grant
+<pre><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+Title: Resource Owner Password Credentials Grant
 Resource Owner-&gt;Client: 1. Authenticate with Credentials
 Client-&gt;Authorization Server: 2. Access Token Request
 Note over Authorization Server: Needs client_id, client_secret, redirect_uri,\ngrant_type=password, username, password

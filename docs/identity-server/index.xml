@@ -82,7 +82,8 @@ The OpenID Connect and OAuth 2 specs define the following grant types:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Implicit&lt;/strong&gt;: used with Mobile Apps or Web Applications (applications that run on the user&amp;rsquo;s device)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;Title: Implicit
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;sequenceDiagram
+Title: Implicit
 Resource Owner-&amp;gt;Client: 1. Click login link
 Client-&amp;gt;Authorization Server: 2. Credential Request to /authorize
 Authorization Server-&amp;gt;Resource Owner: 3. Redirect to login /authorization prompt
@@ -93,7 +94,8 @@ Resource Server-&amp;gt;Client: 7. Response
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Client Credentials&lt;/strong&gt;: used with Applications API access&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;Title: Client Credentials
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;sequenceDiagram
+Title: Client Credentials
 
 Client-&amp;gt;Authorization Server: 1. Authenticate with Client ID + Client Secret to /token
 Authorization Server-&amp;gt;Authorization Server: 2. Validate Client ID + Client Secret
@@ -103,7 +105,8 @@ Resource Server-&amp;gt;Client: 5. Response
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Authorization Code&lt;/strong&gt; : used with server-side Applications&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;Title: Authorization code
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;sequenceDiagram
+Title: Authorization code
 Resource Owner-&amp;gt;Client: 1. Click login link
 Client-&amp;gt;Authorization Server: 2. Authorization Code Request to /authorize
 Authorization Server-&amp;gt;Resource Owner: 3. Redirect to login /authorization prompt
@@ -118,7 +121,8 @@ Resource Server-&amp;gt;Client: 10. Response
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Authorization Code Flow with Proof Key for Code Exchange (PKCE)&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;Title: Authorization Code Flow with Proof Key for Code Exchange (PKCE)
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;sequenceDiagram
+Title: Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 Resource Owner-&amp;gt;Client: 1. Click login link
 Client-&amp;gt;Client: 2. Generate Code Verifier and Code Challenge 
 Client-&amp;gt;Authorization Server: 3. Authorization Code Request + Code Challenge to /authorize
@@ -133,7 +137,8 @@ Resource Server-&amp;gt;Client: 11. Response
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Resource Owner Password Credentials Grant&lt;/strong&gt; : used with trusted Applications, such as those owned by the service itself&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;Title: Resource Owner Password Credentials Grant
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;sequenceDiagram
+Title: Resource Owner Password Credentials Grant
 Resource Owner-&amp;gt;Client: 1. Authenticate with Credentials
 Client-&amp;gt;Authorization Server: 2. Access Token Request
 Note over Authorization Server: Needs client_id, client_secret, redirect_uri,\ngrant_type=password, username, password
