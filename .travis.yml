@@ -1,8 +1,11 @@
-sudo: false
+# sudo is required to install hugo deb package
+sudo: true
 language: go
 go:
   - "1.14.2"  # use Golang 1.14.2
-cache: npm
+cache:
+  directories:
+    - themes
 branches:
   only:
     - google-docsy # build google-docsy branch only
@@ -10,6 +13,7 @@ install:
   - wget https://github.com/gohugoio/hugo/releases/download/v0.69.0/hugo_extended_0.69.0_Linux-64bit.deb
   - sudo dpkg -i hugo*.deb
 script:
+  - npm install
   - hugo # generate static files
 deploy:
   provider: pages
