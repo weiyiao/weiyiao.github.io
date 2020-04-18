@@ -2,6 +2,7 @@
 ---
 title: "Coretronic Cloud Platform"
 linkTitle: "Documentation"
+date: 2019-08-26
 weight: 20
 menu:
   main:

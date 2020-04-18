@@ -57,8 +57,6 @@ description = "Coretronic Cloud Platform 文件"
 languageName = "繁體中文"
 # Weight used for sorting.
 weight = 1
-time_format_default = "02.01.2006"
-time_format_blog = "02.01.2006"
 
 # [languages.en]
 # title = "Goldydocs"
@@ -92,15 +90,15 @@ archived_version = false
 # Used in the "version-banner" partial to display a version number for the
 # current doc set.
 version = "0.0"
-# A link to latest version of the docs. Used in the "version-banner" partial to
-# point people to the main doc site.
-url_latest_version = "https://example.com"
-# Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/google/docsy-example"
-# An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/google/docsy"
-# Specify a value here if your content directory is not in your repo's root directory
-github_subdir = ""
+# # A link to latest version of the docs. Used in the "version-banner" partial to
+# # point people to the main doc site.
+# url_latest_version = "https://example.com"
+# # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
+# github_repo = "https://github.com/google/docsy-example"
+# # An optional link to a related project repo. For example, the sibling repository where your product code lives.
+# github_project_repo = "https://github.com/google/docsy"
+# # Specify a value here if your content directory is not in your repo's root directory
+# github_subdir = ""
 time_format_blog = "Monday, January 02, 2006"
 time_format_default = "January 2, 2006"
 # Sections to publish in the main RSS feed.

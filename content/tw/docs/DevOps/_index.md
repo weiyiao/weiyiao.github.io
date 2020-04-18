@@ -1,6 +1,7 @@
 ---
 title: "DevOps"
 linkTitle: "DevOps"
+date: 2019-08-26
 weight: 1
 description: >
   Coretronic Cloud Platform DevOps

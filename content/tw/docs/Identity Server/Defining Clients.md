@@ -1,6 +1,7 @@
 ---
 title: "Defining Clients"
 linkTitle: "Defining Clients"
+date: 2019-08-26
 weight: 4
 description: >
   Clients represent applications that can request tokens from your identity server.

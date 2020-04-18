@@ -1,6 +1,7 @@
 ---
 title: "Defining Resources"
 linkTitle: "Defining Resources"
+date: 2019-08-26
 weight: 3
 ---
 

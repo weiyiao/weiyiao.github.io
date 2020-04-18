@@ -1,6 +1,7 @@
 ---
 title: "Identity Server Specifications & Flows"
 linkTitle: "Identity Server Specifications & Flows"
+date: 2019-08-26
 weight: 1
 ---
 

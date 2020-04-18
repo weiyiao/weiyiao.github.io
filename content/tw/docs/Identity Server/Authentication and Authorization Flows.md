@@ -1,6 +1,7 @@
 ---
 title: "Authentication and Authorization Flows"
 linkTitle: "Authentication and Authorization Flows"
+date: 2019-08-26
 weight: 2
 ---
 
