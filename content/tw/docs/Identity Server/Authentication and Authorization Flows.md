@@ -11,7 +11,8 @@ The OpenID Connect and OAuth 2 specs define the following grant types:
 
 * **Implicit**: used with Mobile Apps or Web Applications (applications that run on the user's device)
 
-```sequence
+```mermaid
+sequenceDiagram
 Title: Implicit
 Resource Owner->Client: 1. Click login link
 Client->Authorization Server: 2. Credential Request to /authorize
@@ -24,7 +25,8 @@ Resource Server->Client: 7. Response
 
 * **Client Credentials**: used with Applications API access
 
-```sequence
+```mermaid
+sequenceDiagram
 Title: Client Credentials
 
 Client->Authorization Server: 1. Authenticate with Client ID + Client Secret to /token
@@ -36,7 +38,8 @@ Resource Server->Client: 5. Response
 
 * **Authorization Code** : used with server-side Applications
 
-```sequence
+```mermaid
+sequenceDiagram
 Title: Authorization code
 Resource Owner->Client: 1. Click login link
 Client->Authorization Server: 2. Authorization Code Request to /authorize
@@ -54,7 +57,8 @@ https://identity-dev.core-pcloud.com/connect/authorize?response_type=code&client
 ```
 * **Authorization Code Flow with Proof Key for Code Exchange (PKCE)**
 
-```sequence
+```mermaid
+sequenceDiagram
 Title: Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 Resource Owner->Client: 1. Click login link
 Client->Client: 2. Generate Code Verifier and Code Challenge 
@@ -71,7 +75,8 @@ Resource Server->Client: 11. Response
 
 * **Resource Owner Password Credentials Grant** : used with trusted Applications, such as those owned by the service itself
 
-```sequence
+```mermaid
+sequenceDiagram
 Title: Resource Owner Password Credentials Grant
 Resource Owner->Client: 1. Authenticate with Credentials
 Client->Authorization Server: 2. Access Token Request
