@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>/tw/sitemap.xml</loc>
-		
-	   	<lastmod>2020-04-18T09:54:43+08:00</lastmod>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>/en/sitemap.xml</loc>
-		
-	   	<lastmod>2020-04-18T09:54:43+08:00</lastmod>
-		
-	</sitemap>
-	
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/docs/devops/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/identity-server/identity-server-specifications-flows/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/identity-server/authentication-and-authorization-flows/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/identity-server/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/identity-server/defining-resources/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/identity-server/defining-clients/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+  </url>
+  
+  <url>
+    <loc>/search/</loc>
+  </url>
+  
+</urlset>
