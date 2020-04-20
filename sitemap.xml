@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/docs/web-api-for-iot-things/iot-web-api/device-api/</loc>
+    <lastmod>2019-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/docs/devops/</loc>
     <lastmod>2019-08-26T00:00:00+00:00</lastmod>
   </url>
@@ -13,7 +18,17 @@
   </url>
   
   <url>
+    <loc>/docs/web-api-for-iot-things/iot-web-api/</loc>
+    <lastmod>2019-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/docs/identity-server/authentication-and-authorization-flows/</loc>
+    <lastmod>2019-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/web-api-for-iot-things/hmac/</loc>
     <lastmod>2019-08-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -25,6 +40,15 @@
   <url>
     <loc>/docs/identity-server/defining-resources/</loc>
     <lastmod>2019-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/web-api-for-iot-things/</loc>
+    <lastmod>2019-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/web-api-for-iot-things/swagger/</loc>
   </url>
   
   <url>

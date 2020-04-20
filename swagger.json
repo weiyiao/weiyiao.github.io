@@ -1,0 +1,666 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Coretronic Cloud Platform Web API 1.0",
+    "description": "Coretronic Cloud Platform Web API 1.0",
+    "termsOfService": "http://cics.coretronic.com",
+    "contact": {
+      "name": "Willy Wang",
+      "email": "willy.wang@coretronic.com"
+    },
+    "license": {
+      "name": "Coretronic intelligent Cloud Service, CiCS",
+      "url": "http://cics.coretronic.com"
+    },
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Devices/Register": {
+      "post": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "註冊一個新的 Device",
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceRegisterRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceRegisterRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceRegisterRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceRegisterRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the newly created device",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceRegisterResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceRegisterResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceRegisterResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "If the input model is error or the tenant GUID is error or register to Azure IoTHub fail",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The device has been registered",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Devices/Validation/{guid}": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "驗證裝置的可用性",
+        "parameters": [
+          {
+            "name": "guid",
+            "in": "path",
+            "description": "The unique identifier.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The unique identifier.",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the device connection information.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AzureIoTHubResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AzureIoTHubResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AzureIoTHubResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Devices/LatestOTAByDevice": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Get the latest ota information by device.",
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LatestOTAInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LatestOTAInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LatestOTAInfo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Devices/CurrentTime": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Currents the time.",
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "IoTSituation": {
+        "enum": [
+          "Azure",
+          "AWS",
+          "RabbitMQ"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "IoTSituation",
+          "modelAsString": false
+        }
+      },
+      "DeviceRegisterRequest": {
+        "required": [
+          "deviceId",
+          "deviceType",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "guid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "deviceId": {
+            "maxLength": 25,
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 50,
+            "minLength": 0,
+            "pattern": "^[A-Za-z0-9\\-:.+%_#*?!(),=@;$']{1,128}$",
+            "type": "string"
+          },
+          "deviceType": {
+            "maxLength": 25,
+            "minLength": 0,
+            "type": "string"
+          },
+          "ioTSituation": {
+            "$ref": "#/components/schemas/IoTSituation"
+          },
+          "productGuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        }
+      },
+      "SymmetricKey": {
+        "type": "object",
+        "properties": {
+          "primaryKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "secondaryKey": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AzureIoTHubResult": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "hostName": {
+            "type": "string",
+            "nullable": true
+          },
+          "symmetricKey": {
+            "$ref": "#/components/schemas/SymmetricKey"
+          },
+          "azureIoTHubConnectionString": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        }
+      },
+      "DeviceRegisterResult": {
+        "type": "object",
+        "properties": {
+          "guid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "deviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "tenantGuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "secretKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "azureIoTHub": {
+            "$ref": "#/components/schemas/AzureIoTHubResult"
+          }
+        }
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        }
+      },
+      "Product": {
+        "required": [
+          "guid",
+          "name",
+          "tenantId"
+        ],
+        "type": "object",
+        "properties": {
+          "gtin": {
+            "type": "string",
+            "nullable": true
+          },
+          "guid": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "name": {
+            "maxLength": 50,
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "hardwareId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "private": {
+            "type": "boolean"
+          },
+          "creationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "creator": {
+            "type": "string",
+            "nullable": true
+          },
+          "modificationTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "modifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "deletionTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "deleter": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "FirmwareOTARequest": {
+        "type": "object",
+        "properties": {
+          "fingerprint": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "checksum": {
+            "type": "string",
+            "nullable": true
+          },
+          "packageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dateTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "configuration": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SoftwareOTARequest": {
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "string",
+            "nullable": true
+          },
+          "packageFileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "uri": {
+            "type": "string",
+            "nullable": true
+          },
+          "checksum": {
+            "type": "string",
+            "nullable": true
+          },
+          "packageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dateTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "configuration": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "LatestOTAInfo": {
+        "type": "object",
+        "properties": {
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "firmware": {
+            "$ref": "#/components/schemas/FirmwareOTARequest"
+          },
+          "softwares": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SoftwareOTARequest"
+            },
+            "nullable": true
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "CCP-ANON-KEY": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the CCP-ANON-KEY scheme. Example: \"Authorization: CCP-ANON-KEY {token}\"",
+        "name": "Authorization",
+        "in": "header"
+      },
+      "CCP-HMAC-KEY": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the CCP-HMAC-KEY scheme. Example: \"Authorization: CCP-HMAC-KEY {token}\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "CCP-HMAC-KEY": [ ]
+    }
+  ]
+}
