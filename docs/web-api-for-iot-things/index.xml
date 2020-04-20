@@ -36,11 +36,11 @@
       <description>
         
         
-        &lt;p&gt;:::info
-Headers Authorization：
-&lt;strong&gt;{deviceGuid}:{requestSignatureBase64String}:{nonce}:{requestTimeStamp}&lt;/strong&gt;
-:::&lt;/p&gt;
-&lt;h3 id=&#34;headers-authorization&#34;&gt;Headers Authorization&lt;/h3&gt;
+        &lt;blockquote&gt;
+&lt;p&gt;Headers Authorization：
+&lt;strong&gt;{deviceGuid}:{requestSignatureBase64String}:{nonce}:{requestTimeStamp}&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;headers-authorization&#34;&gt;Headers Authorization&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -68,39 +68,64 @@ Headers Authorization：
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;requestsignaturebase64string&#34;&gt;requestSignatureBase64String&lt;/h3&gt;
-&lt;p&gt;:::info
-使用 註冊時提供的 SecretKey 作為 HMACSHA256 的 Hash Seed
-:::
-| Name | Description |
-| &amp;mdash;- | &amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; |
-| deviceGuid | 裝置註冊時，系統提供的 Guid 唯一碼 |
-| requestHttpMethod | Get / Post /Put /Delete |
-| requestUri | Not need UrlEncode |
-| requestTimeStamp | Unix epoch time like 1561456025, 十碼 |
-| nonce | Random，每次呼叫一定要不同，否則回認定為 replay-attacks |&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用 註冊時提供的 SecretKey 作為 HMACSHA256 的 Hash Seed&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;deviceGuid&lt;/td&gt;
+&lt;td&gt;裝置註冊時，系統提供的 Guid 唯一碼&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;requestHttpMethod&lt;/td&gt;
+&lt;td&gt;Get / Post /Put /Delete&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;requestUri&lt;/td&gt;
+&lt;td&gt;Not need UrlEncode&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;requestTimeStamp&lt;/td&gt;
+&lt;td&gt;Unix epoch time like 1561456025, 十碼&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nonce&lt;/td&gt;
+&lt;td&gt;Random，每次呼叫一定要不同，否則回認定為 replay-attacks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;hr&gt;
-&lt;h4 id=&#34;裝置驗證舉例說明&#34;&gt;裝置驗證,舉例說明：&lt;/h4&gt;
-&lt;p&gt;:::success&lt;/p&gt;
+&lt;h3 id=&#34;裝置驗證舉例說明&#34;&gt;裝置驗證,舉例說明：&lt;/h3&gt;
+&lt;p&gt;參數需求 :&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;strong&gt;deviceGuid&lt;/strong&gt; : 607cc2f7-91e0-48cf-9a53-bd7353887d5c&lt;/li&gt;
 &lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;strong&gt;secretKey&lt;/strong&gt; : RY3CmEsUKMu2FJ4C7bpSAjQaRn9A47hLFfZ3gmDVtnU=&lt;/li&gt;
 &lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;strong&gt;requestHttpMethod&lt;/strong&gt; : POST&lt;/li&gt;
 &lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;strong&gt;requestUri&lt;/strong&gt; : &lt;a href=&#34;https://ccp-iot-api-dev.core-pcloud.com/api/Devices/Validation/607cc2f7-91e0-48cf-9a53-bd7353887d5c&#34;&gt;https://ccp-iot-api-dev.core-pcloud.com/api/Devices/Validation/607cc2f7-91e0-48cf-9a53-bd7353887d5c&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;strong&gt;requestTimeStamp&lt;/strong&gt; : 1565346446&lt;/li&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;strong&gt;nonce&lt;/strong&gt; : fd30ad92-02fb-4ca4-933e-d6b76d2c9b60
-:::&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;strong&gt;nonce&lt;/strong&gt; : fd30ad92-02fb-4ca4-933e-d6b76d2c9b60&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;:::warning&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;產出資料 :&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Signature Raw Data&lt;/strong&gt; : &amp;ldquo;607cc2f7-91e0-48cf-9a53-bd7353887d5cGEThttps://ccp-iot-api-dev.core-pcloud.com/api/Devices/Validation/607cc2f7-91e0-48cf-9a53-bd7353887d5c1565346446fd30ad92-02fb-4ca4-933e-d6b76d2c9b60&amp;rdquo;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Authorization&lt;/strong&gt; : &amp;ldquo;CCP-HMAC-KEY 607cc2f7-91e0-48cf-9a53-bd7353887d5c:ZaSZYfK7SAFr39Jga2zbNtLCIsz7sb++b0DvVnvRXe8=:fd30ad92-02fb-4ca4-933e-d6b76d2c9b60:1565346446&amp;rdquo;
-:::&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Authorization&lt;/strong&gt; : &amp;ldquo;CCP-HMAC-KEY 607cc2f7-91e0-48cf-9a53-bd7353887d5c:ZaSZYfK7SAFr39Jga2zbNtLCIsz7sb++b0DvVnvRXe8=:fd30ad92-02fb-4ca4-933e-d6b76d2c9b60:1565346446&amp;rdquo;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;hmac-sample-code-c&#34;&gt;HMAC Sample Code c#&lt;/h4&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;hmac-sample-code-c&#34;&gt;HMAC Sample Code C#&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// &amp;lt;summary&amp;gt;
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// HMAC 驗證 Header 產生方式
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// &amp;lt;/summary&amp;gt;
@@ -165,7 +190,7 @@ Headers Authorization：
     <item>
       <title>Docs: Swagger Doc</title>
       <link>/docs/web-api-for-iot-things/swagger/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/docs/web-api-for-iot-things/swagger/</guid>
       <description>

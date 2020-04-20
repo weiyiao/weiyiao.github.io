@@ -21,28 +21,28 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Device API | Coretronic Cloud Platform Docs</title><meta property="og:title" content="Device API" />
-<meta property="og:description" content="裝置註冊 :::info ==POST== https://{Server Name}/api/Devices/Register :::
-Request method    Request methods/headers Value     Method POST   Content-Type application/json   Authorization ==CCP-ANON-KEY== &lt;access_token&gt;    :::info Headers Authorization： {tenantGuid}:{CCP-KEY} :::
-Headers Authorization    Name Description     tenantGuid 請洽系統管理員   CCP-KEY 請洽系統管理員    Request body { &#34;deviceId&#34;: &#34;string&#34;, &#34;name&#34;: &#34;string&#34;, &#34;deviceType&#34;: &#34;string&#34;, &#34;ioTSituation&#34;: &#34;Azure&#34; }    Name Required/Optional Type Description     deviceId Required String 該裝置的獨特 ID ，例如：無人機序號、安卓板子序號、 CPU 序號、網卡序號…等   name Required String 管理系統上看到的名稱，名稱不能有空白字元或特殊字元   deviceType Required String 無人機、公播、智慧貨架、投影機…等   ioTSituation Required Enum 使用 IoT 通訊方式，[ Azure, AWS, RabbitMQ ], 預設 Azure    Response    Response headers Value     status 200: Success 400: Bad request409: The device has been registered500: Failure due to server error   Content-Type application/json    Response body { &#34;guid&#34;: &#34;string&#34;, &#34;deviceId&#34;: &#34;string&#34;, &#34;name&#34;: &#34;string&#34;, &#34;tenantGuid&#34;: &#34;string&#34;, &#34;secretKey&#34;: &#34;string&#34;, &#34;azureIoTHub&#34;: { &#34;deviceId&#34;: &#34;string&#34;, &#34;hostName&#34;: &#34;string&#34;, &#34;symmetricKey&#34;: { &#34;primaryKey&#34;: &#34;string&#34;, &#34;secondaryKey&#34;: &#34;string&#34; }, &#34;azureIoTHubConnectionString&#34;: &#34;string&#34; } }    Name Type Value description     guid GUID CCP 系統自動產生   deviceId String 呼叫 API 時提供的 deviceId   name String 呼叫 API 時提供的 name   tenantGuid GUID 呼叫 API 時提供的 tenantGuid   secretKey String  提供給裝置呼叫 CCP Web API 時建立 HMAC Header 的金鑰只註冊時提供，將來都不會再任何一個地方取得，包含 CCP 管理平台 若使用 IoTHub 此金鑰預設使用 symmetricKey primaryKey    azureIoTHub deviceId String 呼叫 API 時提供的 name   symmetricKey primaryKey String 對稱金鑰，主要金鑰   secondaryKey String 對稱金鑰，次要金鑰   azureIoTHubConnectionString String Azure IoT Hub 連接字串    裝置驗證 :::info ==POST== https://{Server Name}/api/Devices/Validation/{guid} :::" />
+<meta property="og:description" content="裝置註冊  POST https://{Server Name}/api/Devices/Register
+ Request method    Request methods/headers Value     Method POST   Content-Type application/json   Authorization CCP-ANON-KEY &lt;access_token&gt;     Headers Authorization： {tenantGuid}:{CCP-KEY}
+ Headers Authorization    Name Description     tenantGuid 請洽系統管理員   CCP-KEY 請洽系統管理員    Request body { &#34;deviceId&#34;: &#34;string&#34;, &#34;name&#34;: &#34;string&#34;, &#34;deviceType&#34;: &#34;string&#34;, &#34;ioTSituation&#34;: &#34;Azure&#34; }    Name Required/Optional Type Description     deviceId Required String 該裝置的獨特 ID ，例如：無人機序號、安卓板子序號、 CPU 序號、網卡序號…等   name Required String 管理系統上看到的名稱，名稱不能有空白字元或特殊字元   deviceType Required String 無人機、公播、智慧貨架、投影機…等   ioTSituation Required Enum 使用 IoT 通訊方式，[ Azure, AWS, RabbitMQ ], 預設 Azure    Response    Response headers Value     status 200: Success 400: Bad request" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/web-api-for-iot-things/iot-web-api/device-api/" />
 <meta property="article:published_time" content="2019-08-26T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-08-26T00:00:00+00:00" /><meta property="og:site_name" content="Coretronic Cloud Platform Docs" />
 <meta itemprop="name" content="Device API">
-<meta itemprop="description" content="裝置註冊 :::info ==POST== https://{Server Name}/api/Devices/Register :::
-Request method    Request methods/headers Value     Method POST   Content-Type application/json   Authorization ==CCP-ANON-KEY== &lt;access_token&gt;    :::info Headers Authorization： {tenantGuid}:{CCP-KEY} :::
-Headers Authorization    Name Description     tenantGuid 請洽系統管理員   CCP-KEY 請洽系統管理員    Request body { &#34;deviceId&#34;: &#34;string&#34;, &#34;name&#34;: &#34;string&#34;, &#34;deviceType&#34;: &#34;string&#34;, &#34;ioTSituation&#34;: &#34;Azure&#34; }    Name Required/Optional Type Description     deviceId Required String 該裝置的獨特 ID ，例如：無人機序號、安卓板子序號、 CPU 序號、網卡序號…等   name Required String 管理系統上看到的名稱，名稱不能有空白字元或特殊字元   deviceType Required String 無人機、公播、智慧貨架、投影機…等   ioTSituation Required Enum 使用 IoT 通訊方式，[ Azure, AWS, RabbitMQ ], 預設 Azure    Response    Response headers Value     status 200: Success 400: Bad request409: The device has been registered500: Failure due to server error   Content-Type application/json    Response body { &#34;guid&#34;: &#34;string&#34;, &#34;deviceId&#34;: &#34;string&#34;, &#34;name&#34;: &#34;string&#34;, &#34;tenantGuid&#34;: &#34;string&#34;, &#34;secretKey&#34;: &#34;string&#34;, &#34;azureIoTHub&#34;: { &#34;deviceId&#34;: &#34;string&#34;, &#34;hostName&#34;: &#34;string&#34;, &#34;symmetricKey&#34;: { &#34;primaryKey&#34;: &#34;string&#34;, &#34;secondaryKey&#34;: &#34;string&#34; }, &#34;azureIoTHubConnectionString&#34;: &#34;string&#34; } }    Name Type Value description     guid GUID CCP 系統自動產生   deviceId String 呼叫 API 時提供的 deviceId   name String 呼叫 API 時提供的 name   tenantGuid GUID 呼叫 API 時提供的 tenantGuid   secretKey String  提供給裝置呼叫 CCP Web API 時建立 HMAC Header 的金鑰只註冊時提供，將來都不會再任何一個地方取得，包含 CCP 管理平台 若使用 IoTHub 此金鑰預設使用 symmetricKey primaryKey    azureIoTHub deviceId String 呼叫 API 時提供的 name   symmetricKey primaryKey String 對稱金鑰，主要金鑰   secondaryKey String 對稱金鑰，次要金鑰   azureIoTHubConnectionString String Azure IoT Hub 連接字串    裝置驗證 :::info ==POST== https://{Server Name}/api/Devices/Validation/{guid} :::">
+<meta itemprop="description" content="裝置註冊  POST https://{Server Name}/api/Devices/Register
+ Request method    Request methods/headers Value     Method POST   Content-Type application/json   Authorization CCP-ANON-KEY &lt;access_token&gt;     Headers Authorization： {tenantGuid}:{CCP-KEY}
+ Headers Authorization    Name Description     tenantGuid 請洽系統管理員   CCP-KEY 請洽系統管理員    Request body { &#34;deviceId&#34;: &#34;string&#34;, &#34;name&#34;: &#34;string&#34;, &#34;deviceType&#34;: &#34;string&#34;, &#34;ioTSituation&#34;: &#34;Azure&#34; }    Name Required/Optional Type Description     deviceId Required String 該裝置的獨特 ID ，例如：無人機序號、安卓板子序號、 CPU 序號、網卡序號…等   name Required String 管理系統上看到的名稱，名稱不能有空白字元或特殊字元   deviceType Required String 無人機、公播、智慧貨架、投影機…等   ioTSituation Required Enum 使用 IoT 通訊方式，[ Azure, AWS, RabbitMQ ], 預設 Azure    Response    Response headers Value     status 200: Success 400: Bad request">
 <meta itemprop="datePublished" content="2019-08-26T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="605">
+<meta itemprop="wordCount" content="601">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Device API"/>
-<meta name="twitter:description" content="裝置註冊 :::info ==POST== https://{Server Name}/api/Devices/Register :::
-Request method    Request methods/headers Value     Method POST   Content-Type application/json   Authorization ==CCP-ANON-KEY== &lt;access_token&gt;    :::info Headers Authorization： {tenantGuid}:{CCP-KEY} :::
-Headers Authorization    Name Description     tenantGuid 請洽系統管理員   CCP-KEY 請洽系統管理員    Request body { &#34;deviceId&#34;: &#34;string&#34;, &#34;name&#34;: &#34;string&#34;, &#34;deviceType&#34;: &#34;string&#34;, &#34;ioTSituation&#34;: &#34;Azure&#34; }    Name Required/Optional Type Description     deviceId Required String 該裝置的獨特 ID ，例如：無人機序號、安卓板子序號、 CPU 序號、網卡序號…等   name Required String 管理系統上看到的名稱，名稱不能有空白字元或特殊字元   deviceType Required String 無人機、公播、智慧貨架、投影機…等   ioTSituation Required Enum 使用 IoT 通訊方式，[ Azure, AWS, RabbitMQ ], 預設 Azure    Response    Response headers Value     status 200: Success 400: Bad request409: The device has been registered500: Failure due to server error   Content-Type application/json    Response body { &#34;guid&#34;: &#34;string&#34;, &#34;deviceId&#34;: &#34;string&#34;, &#34;name&#34;: &#34;string&#34;, &#34;tenantGuid&#34;: &#34;string&#34;, &#34;secretKey&#34;: &#34;string&#34;, &#34;azureIoTHub&#34;: { &#34;deviceId&#34;: &#34;string&#34;, &#34;hostName&#34;: &#34;string&#34;, &#34;symmetricKey&#34;: { &#34;primaryKey&#34;: &#34;string&#34;, &#34;secondaryKey&#34;: &#34;string&#34; }, &#34;azureIoTHubConnectionString&#34;: &#34;string&#34; } }    Name Type Value description     guid GUID CCP 系統自動產生   deviceId String 呼叫 API 時提供的 deviceId   name String 呼叫 API 時提供的 name   tenantGuid GUID 呼叫 API 時提供的 tenantGuid   secretKey String  提供給裝置呼叫 CCP Web API 時建立 HMAC Header 的金鑰只註冊時提供，將來都不會再任何一個地方取得，包含 CCP 管理平台 若使用 IoTHub 此金鑰預設使用 symmetricKey primaryKey    azureIoTHub deviceId String 呼叫 API 時提供的 name   symmetricKey primaryKey String 對稱金鑰，主要金鑰   secondaryKey String 對稱金鑰，次要金鑰   azureIoTHubConnectionString String Azure IoT Hub 連接字串    裝置驗證 :::info ==POST== https://{Server Name}/api/Devices/Validation/{guid} :::"/>
+<meta name="twitter:description" content="裝置註冊  POST https://{Server Name}/api/Devices/Register
+ Request method    Request methods/headers Value     Method POST   Content-Type application/json   Authorization CCP-ANON-KEY &lt;access_token&gt;     Headers Authorization： {tenantGuid}:{CCP-KEY}
+ Headers Authorization    Name Description     tenantGuid 請洽系統管理員   CCP-KEY 請洽系統管理員    Request body { &#34;deviceId&#34;: &#34;string&#34;, &#34;name&#34;: &#34;string&#34;, &#34;deviceType&#34;: &#34;string&#34;, &#34;ioTSituation&#34;: &#34;Azure&#34; }    Name Required/Optional Type Description     deviceId Required String 該裝置的獨特 ID ，例如：無人機序號、安卓板子序號、 CPU 序號、網卡序號…等   name Required String 管理系統上看到的名稱，名稱不能有空白字元或特殊字元   deviceType Required String 無人機、公播、智慧貨架、投影機…等   ioTSituation Required Enum 使用 IoT 通訊方式，[ Azure, AWS, RabbitMQ ], 預設 Azure    Response    Response headers Value     status 200: Success 400: Bad request"/>
 
 
 
@@ -311,7 +311,10 @@ Headers Authorization    Name Description     tenantGuid 請洽系統管理員  
         <li><a href="#request-parameters"><strong>Request parameters</strong></a></li>
         <li><a href="#response-1"><strong>Response</strong></a></li>
         <li><a href="#response-body-1"><strong>Response body</strong></a></li>
-        <li><a href="#unit-test-sample-code-c">Unit Test Sample Code C#</a></li>
+      </ul>
+    </li>
+    <li><a href="#unit-test-sample-code-c">Unit Test Sample Code C#</a>
+      <ul>
         <li><a href="#class--iotdevicevalidationunittest">Class : IoTDeviceValidationUnitTest</a></li>
         <li><a href="#class--hmacauthenticationdelegatinghandler">Class : HMACAuthenticationDelegatingHandler</a></li>
       </ul>
@@ -376,9 +379,9 @@ Headers Authorization    Name Description     tenantGuid 請洽系統管理員  
     
 	       
 	<h2 id="裝置註冊">裝置註冊</h2>
-<p>:::info
-==POST== https://{Server Name}/api/Devices/Register
-:::</p>
+<blockquote>
+<p><strong>POST</strong> https://{Server Name}/api/Devices/Register</p>
+</blockquote>
 <h3 id="request-method"><strong>Request method</strong></h3>
 <table>
 <thead>
@@ -398,14 +401,13 @@ Headers Authorization    Name Description     tenantGuid 請洽系統管理員  
 </tr>
 <tr>
 <td>Authorization</td>
-<td>==CCP-ANON-KEY== &lt;access_token&gt;</td>
+<td><strong>CCP-ANON-KEY</strong> &lt;access_token&gt;</td>
 </tr>
 </tbody>
 </table>
-<p>:::info
-Headers Authorization：
-<strong>{tenantGuid}:{CCP-KEY}</strong>
-:::</p>
+<blockquote>
+<p>Headers Authorization： <strong>{tenantGuid}:{CCP-KEY}</strong></p>
+</blockquote>
 <h3 id="headers-authorization">Headers Authorization</h3>
 <table>
 <thead>
@@ -479,7 +481,7 @@ Headers Authorization：
 <tbody>
 <tr>
 <td>status</td>
-<td>200: Success </br>400: Bad request</br>409: The device has been registered</br>500: Failure due to server error</td>
+<td>200: Success <br />400: Bad request<br />409: The device has been registered<br />500: Failure due to server error</td>
 </tr>
 <tr>
 <td>Content-Type</td>
@@ -563,9 +565,9 @@ Headers Authorization：
   </tbody>
 </table>
 <h2 id="裝置驗證">裝置驗證</h2>
-<p>:::info
-==POST== https://{Server Name}/api/Devices/Validation/{guid}
-:::</p>
+<blockquote>
+<p><strong>POST</strong> https://{Server Name}/api/Devices/Validation/{guid}</p>
+</blockquote>
 <h3 id="request-method-1"><strong>Request method</strong></h3>
 <table>
 <thead>
@@ -581,7 +583,7 @@ Headers Authorization：
 </tr>
 <tr>
 <td>Authorization</td>
-<td>==CCP-HMAC-KEY== &lt;access_token&gt;</td>
+<td><strong>CCP-HMAC-KEY</strong> &lt;access_token&gt;</td>
 </tr>
 </tbody>
 </table>
@@ -672,10 +674,8 @@ Headers Authorization：
     </tr>
   </tbody>
 </table>
-<h3 id="unit-test-sample-code-c">Unit Test Sample Code C#</h3>
-<blockquote>
+<h2 id="unit-test-sample-code-c">Unit Test Sample Code C#</h2>
 <h3 id="class--iotdevicevalidationunittest">Class : IoTDeviceValidationUnitTest</h3>
-</blockquote>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#c4a000">[TestClass]</span>
 <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">IoTDeviceValidationUnitTest</span>
 <span style="color:#000;font-weight:bold">{</span>
@@ -733,9 +733,7 @@ Headers Authorization：
         <span style="color:#000">Assert</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AreEqual</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StatusCode</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">HttpStatusCode</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">OK</span><span style="color:#000;font-weight:bold">);</span>
     <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><blockquote>
-<h3 id="class--hmacauthenticationdelegatinghandler">Class : HMACAuthenticationDelegatingHandler</h3>
-</blockquote>
+</code></pre></div><h3 id="class--hmacauthenticationdelegatinghandler">Class : HMACAuthenticationDelegatingHandler</h3>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#8f5902;font-style:italic">/// &lt;summary&gt;
 </span><span style="color:#8f5902;font-style:italic">/// HMAC 驗證 Header 產生方式
 </span><span style="color:#8f5902;font-style:italic">/// &lt;/summary&gt;

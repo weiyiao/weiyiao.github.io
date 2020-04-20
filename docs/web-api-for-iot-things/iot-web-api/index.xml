@@ -24,9 +24,9 @@
         
         
         &lt;h2 id=&#34;裝置註冊&#34;&gt;裝置註冊&lt;/h2&gt;
-&lt;p&gt;:::info
-==POST== https://{Server Name}/api/Devices/Register
-:::&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;POST&lt;/strong&gt; https://{Server Name}/api/Devices/Register&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;request-method&#34;&gt;&lt;strong&gt;Request method&lt;/strong&gt;&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -46,14 +46,13 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Authorization&lt;/td&gt;
-&lt;td&gt;==CCP-ANON-KEY== &amp;lt;access_token&amp;gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;CCP-ANON-KEY&lt;/strong&gt; &amp;lt;access_token&amp;gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;:::info
-Headers Authorization：
-&lt;strong&gt;{tenantGuid}:{CCP-KEY}&lt;/strong&gt;
-:::&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Headers Authorization： &lt;strong&gt;{tenantGuid}:{CCP-KEY}&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;headers-authorization&#34;&gt;Headers Authorization&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -127,7 +126,7 @@ Headers Authorization：
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;status&lt;/td&gt;
-&lt;td&gt;200: Success &lt;/br&gt;400: Bad request&lt;/br&gt;409: The device has been registered&lt;/br&gt;500: Failure due to server error&lt;/td&gt;
+&lt;td&gt;200: Success &lt;br /&gt;400: Bad request&lt;br /&gt;409: The device has been registered&lt;br /&gt;500: Failure due to server error&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Content-Type&lt;/td&gt;
@@ -211,9 +210,9 @@ Headers Authorization：
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;裝置驗證&#34;&gt;裝置驗證&lt;/h2&gt;
-&lt;p&gt;:::info
-==POST== https://{Server Name}/api/Devices/Validation/{guid}
-:::&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;POST&lt;/strong&gt; https://{Server Name}/api/Devices/Validation/{guid}&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;request-method-1&#34;&gt;&lt;strong&gt;Request method&lt;/strong&gt;&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -229,7 +228,7 @@ Headers Authorization：
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Authorization&lt;/td&gt;
-&lt;td&gt;==CCP-HMAC-KEY== &amp;lt;access_token&amp;gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;CCP-HMAC-KEY&lt;/strong&gt; &amp;lt;access_token&amp;gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -320,10 +319,8 @@ Headers Authorization：
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;unit-test-sample-code-c&#34;&gt;Unit Test Sample Code C#&lt;/h3&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&#34;unit-test-sample-code-c&#34;&gt;Unit Test Sample Code C#&lt;/h2&gt;
 &lt;h3 id=&#34;class--iotdevicevalidationunittest&#34;&gt;Class : IoTDeviceValidationUnitTest&lt;/h3&gt;
-&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#c4a000&#34;&gt;[TestClass]&lt;/span&gt;
 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;IoTDeviceValidationUnitTest&lt;/span&gt;
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
@@ -381,9 +378,7 @@ Headers Authorization：
         &lt;span style=&#34;color:#000&#34;&gt;Assert&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;AreEqual&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;response&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;StatusCode&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;HttpStatusCode&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;OK&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
     &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;h3 id=&#34;class--hmacauthenticationdelegatinghandler&#34;&gt;Class : HMACAuthenticationDelegatingHandler&lt;/h3&gt;
-&lt;/blockquote&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;class--hmacauthenticationdelegatinghandler&#34;&gt;Class : HMACAuthenticationDelegatingHandler&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// &amp;lt;summary&amp;gt;
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// HMAC 驗證 Header 產生方式
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// &amp;lt;/summary&amp;gt;

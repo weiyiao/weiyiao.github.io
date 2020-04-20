@@ -32,7 +32,7 @@
 ">
 <meta itemprop="datePublished" content="2019-08-26T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="282">
+<meta itemprop="wordCount" content="255">
 
 
 
@@ -293,10 +293,11 @@
 
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#headers-authorization">Headers Authorization</a>
       <ul>
-        <li><a href="#headers-authorization">Headers Authorization</a></li>
         <li><a href="#requestsignaturebase64string">requestSignatureBase64String</a></li>
+        <li><a href="#裝置驗證舉例說明">裝置驗證,舉例說明：</a></li>
+        <li><a href="#hmac-sample-code-c">HMAC Sample Code C#</a></li>
       </ul>
     </li>
   </ul>
@@ -348,11 +349,11 @@
 	<h1>Hash-based Message Authentication Code</h1>
     <div class="lead">Hash-based Message Authentication Code</div>
 	       
-	<p>:::info
-Headers Authorization：
-<strong>{deviceGuid}:{requestSignatureBase64String}:{nonce}:{requestTimeStamp}</strong>
-:::</p>
-<h3 id="headers-authorization">Headers Authorization</h3>
+	<blockquote>
+<p>Headers Authorization：
+<strong>{deviceGuid}:{requestSignatureBase64String}:{nonce}:{requestTimeStamp}</strong></p>
+</blockquote>
+<h2 id="headers-authorization">Headers Authorization</h2>
 <table>
 <thead>
 <tr>
@@ -380,39 +381,64 @@ Headers Authorization：
 </tbody>
 </table>
 <h3 id="requestsignaturebase64string">requestSignatureBase64String</h3>
-<p>:::info
-使用 註冊時提供的 SecretKey 作為 HMACSHA256 的 Hash Seed
-:::
-| Name | Description |
-| &mdash;- | &mdash;&mdash;&mdash;&ndash; |
-| deviceGuid | 裝置註冊時，系統提供的 Guid 唯一碼 |
-| requestHttpMethod | Get / Post /Put /Delete |
-| requestUri | Not need UrlEncode |
-| requestTimeStamp | Unix epoch time like 1561456025, 十碼 |
-| nonce | Random，每次呼叫一定要不同，否則回認定為 replay-attacks |</p>
+<blockquote>
+<p>使用 註冊時提供的 SecretKey 作為 HMACSHA256 的 Hash Seed</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deviceGuid</td>
+<td>裝置註冊時，系統提供的 Guid 唯一碼</td>
+</tr>
+<tr>
+<td>requestHttpMethod</td>
+<td>Get / Post /Put /Delete</td>
+</tr>
+<tr>
+<td>requestUri</td>
+<td>Not need UrlEncode</td>
+</tr>
+<tr>
+<td>requestTimeStamp</td>
+<td>Unix epoch time like 1561456025, 十碼</td>
+</tr>
+<tr>
+<td>nonce</td>
+<td>Random，每次呼叫一定要不同，否則回認定為 replay-attacks</td>
+</tr>
+</tbody>
+</table>
 <hr>
-<h4 id="裝置驗證舉例說明">裝置驗證,舉例說明：</h4>
-<p>:::success</p>
+<h3 id="裝置驗證舉例說明">裝置驗證,舉例說明：</h3>
+<p>參數需求 :</p>
+<blockquote>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> <strong>deviceGuid</strong> : 607cc2f7-91e0-48cf-9a53-bd7353887d5c</li>
 <li><input checked="" disabled="" type="checkbox"> <strong>secretKey</strong> : RY3CmEsUKMu2FJ4C7bpSAjQaRn9A47hLFfZ3gmDVtnU=</li>
 <li><input checked="" disabled="" type="checkbox"> <strong>requestHttpMethod</strong> : POST</li>
 <li><input checked="" disabled="" type="checkbox"> <strong>requestUri</strong> : <a href="https://ccp-iot-api-dev.core-pcloud.com/api/Devices/Validation/607cc2f7-91e0-48cf-9a53-bd7353887d5c">https://ccp-iot-api-dev.core-pcloud.com/api/Devices/Validation/607cc2f7-91e0-48cf-9a53-bd7353887d5c</a></li>
 <li><input checked="" disabled="" type="checkbox"> <strong>requestTimeStamp</strong> : 1565346446</li>
-<li><input checked="" disabled="" type="checkbox"> <strong>nonce</strong> : fd30ad92-02fb-4ca4-933e-d6b76d2c9b60
-:::</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>nonce</strong> : fd30ad92-02fb-4ca4-933e-d6b76d2c9b60</li>
 </ul>
-<p>:::warning</p>
+</blockquote>
+<p>產出資料 :</p>
+<blockquote>
 <ul>
 <li>
 <p><strong>Signature Raw Data</strong> : &ldquo;607cc2f7-91e0-48cf-9a53-bd7353887d5cGEThttps://ccp-iot-api-dev.core-pcloud.com/api/Devices/Validation/607cc2f7-91e0-48cf-9a53-bd7353887d5c1565346446fd30ad92-02fb-4ca4-933e-d6b76d2c9b60&rdquo;</p>
 </li>
 <li>
-<p><strong>Authorization</strong> : &ldquo;CCP-HMAC-KEY 607cc2f7-91e0-48cf-9a53-bd7353887d5c:ZaSZYfK7SAFr39Jga2zbNtLCIsz7sb++b0DvVnvRXe8=:fd30ad92-02fb-4ca4-933e-d6b76d2c9b60:1565346446&rdquo;
-:::</p>
+<p><strong>Authorization</strong> : &ldquo;CCP-HMAC-KEY 607cc2f7-91e0-48cf-9a53-bd7353887d5c:ZaSZYfK7SAFr39Jga2zbNtLCIsz7sb++b0DvVnvRXe8=:fd30ad92-02fb-4ca4-933e-d6b76d2c9b60:1565346446&rdquo;</p>
 </li>
 </ul>
-<h4 id="hmac-sample-code-c">HMAC Sample Code c#</h4>
+</blockquote>
+<h3 id="hmac-sample-code-c">HMAC Sample Code C#</h3>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#8f5902;font-style:italic">/// &lt;summary&gt;
 </span><span style="color:#8f5902;font-style:italic">/// HMAC 驗證 Header 產生方式
 </span><span style="color:#8f5902;font-style:italic">/// &lt;/summary&gt;
