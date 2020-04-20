@@ -7,12 +7,11 @@ description: >
   Hash-based Message Authentication Code
 ---
 
-:::info
-Headers Authorization：
-**{deviceGuid}:{requestSignatureBase64String}:{nonce}:{requestTimeStamp}**
-:::
+> Headers Authorization：
+> **{deviceGuid}:{requestSignatureBase64String}:{nonce}:{requestTimeStamp}**
 
-### Headers Authorization
+## Headers Authorization
+
 | Name | Description |
 | ---- | ----------- |
 | deviceGuid | 裝置註冊時，系統提供的 Guid 唯一碼 |
@@ -21,9 +20,8 @@ Headers Authorization：
 | requestTimeStamp | Unix epoch time like 1561456025, 十碼 |
 
 ### requestSignatureBase64String
-:::info
-使用 註冊時提供的 SecretKey 作為 HMACSHA256 的 Hash Seed
-:::
+> 使用 註冊時提供的 SecretKey 作為 HMACSHA256 的 Hash Seed
+
 | Name | Description |
 | ---- | ----------- |
 | deviceGuid | 裝置註冊時，系統提供的 Guid 唯一碼 |
@@ -34,24 +32,26 @@ Headers Authorization：
 
 ---
 
-#### 裝置驗證,舉例說明：
+### 裝置驗證,舉例說明：
 
-:::success
-- [x] **deviceGuid** : 607cc2f7-91e0-48cf-9a53-bd7353887d5c
-- [x] **secretKey** : RY3CmEsUKMu2FJ4C7bpSAjQaRn9A47hLFfZ3gmDVtnU=
-- [x] **requestHttpMethod** : POST
-- [x] **requestUri** : https://ccp-iot-api-dev.core-pcloud.com/api/Devices/Validation/607cc2f7-91e0-48cf-9a53-bd7353887d5c
-- [x] **requestTimeStamp** : 1565346446
-- [x] **nonce** : fd30ad92-02fb-4ca4-933e-d6b76d2c9b60
-:::
+參數需求 :
 
-:::warning
-* **Signature Raw Data** : "607cc2f7-91e0-48cf-9a53-bd7353887d5cGEThttps://ccp-iot-api-dev.core-pcloud.com/api/Devices/Validation/607cc2f7-91e0-48cf-9a53-bd7353887d5c1565346446fd30ad92-02fb-4ca4-933e-d6b76d2c9b60"
+> - [x] **deviceGuid** : 607cc2f7-91e0-48cf-9a53-bd7353887d5c
+> - [x] **secretKey** : RY3CmEsUKMu2FJ4C7bpSAjQaRn9A47hLFfZ3gmDVtnU=
+> - [x] **requestHttpMethod** : POST
+> - [x] **requestUri** : https://ccp-iot-api-dev.core-pcloud.com/api/Devices/Validation/607cc2f7-91e0-48cf-9a53-bd7353887d5c
+> - [x] **requestTimeStamp** : 1565346446
+> - [x] **nonce** : fd30ad92-02fb-4ca4-933e-d6b76d2c9b60
+>
 
-* **Authorization** : "CCP-HMAC-KEY 607cc2f7-91e0-48cf-9a53-bd7353887d5c:ZaSZYfK7SAFr39Jga2zbNtLCIsz7sb++b0DvVnvRXe8=:fd30ad92-02fb-4ca4-933e-d6b76d2c9b60:1565346446"
-:::
+產出資料 :
 
-#### HMAC Sample Code c#
+> * **Signature Raw Data** : "607cc2f7-91e0-48cf-9a53-bd7353887d5cGEThttps://ccp-iot-api-dev.core-pcloud.com/api/Devices/Validation/607cc2f7-91e0-48cf-9a53-bd7353887d5c1565346446fd30ad92-02fb-4ca4-933e-d6b76d2c9b60"
+>
+> * **Authorization** : "CCP-HMAC-KEY 607cc2f7-91e0-48cf-9a53-bd7353887d5c:ZaSZYfK7SAFr39Jga2zbNtLCIsz7sb++b0DvVnvRXe8=:fd30ad92-02fb-4ca4-933e-d6b76d2c9b60:1565346446"
+>
+
+### HMAC Sample Code C#
 ```csharp
 /// <summary>
 /// HMAC 驗證 Header 產生方式

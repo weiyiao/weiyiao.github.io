@@ -7,21 +7,17 @@ weight: 1
 
 ## 裝置註冊
 
-:::info
-==POST== https://{Server Name}/api/Devices/Register
-:::
+> **POST** https://{Server Name}/api/Devices/Register
 
 ### **Request method**
+
 | Request methods/headers | Value |
 | -------- | -------- |
 | Method | POST |
 | Content-Type | application/json |
-| Authorization | ==CCP-ANON-KEY== <access_token> |
+| Authorization | **CCP-ANON-KEY** <access_token> |
 
-:::info
-Headers Authorization：
-**{tenantGuid}:{CCP-KEY}**
-:::
+> Headers Authorization： **{tenantGuid}:{CCP-KEY}**
 
 ### Headers Authorization
 | Name | Description |
@@ -51,7 +47,7 @@ Headers Authorization：
 
 | Response headers | Value |
 | -------- | -------- |
-| status | 200: Success </br>400: Bad request</br>409: The device has been registered</br>500: Failure due to server error     |
+| status | 200: Success <br />400: Bad request<br />409: The device has been registered<br />500: Failure due to server error |
 | Content-Type | application/json |
 
 ### **Response body**
@@ -136,15 +132,13 @@ Headers Authorization：
 
 ## 裝置驗證
 
-:::info
-==POST== https://{Server Name}/api/Devices/Validation/{guid}
-:::
+> **POST** https://{Server Name}/api/Devices/Validation/{guid}
 
 ### **Request method**
 | Request methods/headers | Value |
 | -------- | -------- |
 | Method | POST |
-| Authorization | ==CCP-HMAC-KEY== <access_token> |
+| Authorization | **CCP-HMAC-KEY** <access_token> |
 
 ### **Request parameters**
 | Name | Required/Optional | Type | Description |
@@ -209,9 +203,11 @@ Headers Authorization：
   </tbody>
 </table>
 
-### Unit Test Sample Code C#
 
-> ###  Class : IoTDeviceValidationUnitTest
+## Unit Test Sample Code C#
+
+### Class : IoTDeviceValidationUnitTest
+
 ```csharp
 [TestClass]
 public class IoTDeviceValidationUnitTest
@@ -272,7 +268,10 @@ public class IoTDeviceValidationUnitTest
 }
 ```
 
-> ### Class : HMACAuthenticationDelegatingHandler
+
+
+### Class : HMACAuthenticationDelegatingHandler
+
 ```csharp
 /// <summary>
 /// HMAC 驗證 Header 產生方式
