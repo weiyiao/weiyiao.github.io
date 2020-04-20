@@ -1,4 +1,3 @@
-
 ---
 title: "Coretronic Cloud Platform"
 linkTitle: "Documentation"
