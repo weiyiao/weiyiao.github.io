@@ -352,24 +352,41 @@
         <div class="lead">License Management</div>
 	
 	<h3 id="license-flows">License flows</h3>
+<h4 id="device-register">Device Register</h4>
 <pre><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
-autonumber
+
 participant Device
 participant CCP
-participant PCLOUD2
 participant LS as License Service
+participant App as Other App
 
-Device -&gt;&gt; CCP : Register
-CCP -&gt;&gt; PCLOUD2 : Sync
-PCLOUD2 -&gt;&gt; LS : /edi/v1/applickeys
-activate LS
-LS --&gt;&gt; PCLOUD2 : SN generate applickeys
-deactivate LS
-PCLOUD2 -&gt;&gt; LS : /edi/v1/{applickeys}/activation-app-lic
-activate LS
-LS --&gt;&gt; PCLOUD2 : Active applickeys License Key
-deactivate LS
+rect rgba(0, 0, 255, .1)
+Note over Device,LS: Device Register
+Device -&gt;&gt; +CCP : Register
+CCP -&gt;&gt; +LS : Register Client : POST /applickeys
+LS --&gt;&gt; -CCP : Trial License enable
+CCP -&gt;&gt; App : Sync
+CCP --&gt;&gt; -Device : Register Info
+end
 
+rect rgba(0, 0, 255, .1)
+Note over CCP,LS: License Activation
+opt Device Activate
+Device -&gt;&gt; CCP: Activate
+end
+CCP -&gt;&gt; +LS : Activate : POST /applickeys/{applickeys}/activation-app-lic
+Note right of LS: Search Available Product Key
+LS --&gt;&gt; -CCP : Available Product Key
+
+CCP -&gt;&gt; +LS : Generate Product key
+LS --&gt;&gt; -CCP : Available Product Key
+
+CCP -&gt;&gt; +LS : Append Product Key to Client License
+LS --&gt;&gt; -CCP : License
+
+CCP -&gt;&gt; App : Sync w/ License
+
+end
 </code></pre>
         <div class="section-index">
     
