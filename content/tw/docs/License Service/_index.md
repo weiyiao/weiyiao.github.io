@@ -9,23 +9,40 @@ description: >
 
 ### License flows
 
+#### Device Register
 ```mermaid
 sequenceDiagram
-autonumber
+
 participant Device
 participant CCP
-participant PCLOUD2
 participant LS as License Service
+participant App as Other App
 
-Device ->> CCP : Register
-CCP ->> PCLOUD2 : Sync
-PCLOUD2 ->> LS : /edi/v1/applickeys
-activate LS
-LS -->> PCLOUD2 : SN generate applickeys
-deactivate LS
-PCLOUD2 ->> LS : /edi/v1/{applickeys}/activation-app-lic
-activate LS
-LS -->> PCLOUD2 : Active applickeys License Key
-deactivate LS
+rect rgba(0, 0, 255, .1)
+Note over Device,LS: Device Register
+Device ->> +CCP : Register
+CCP ->> +LS : Register Client : POST /applickeys
+LS -->> -CCP : Trial License enable
+CCP ->> App : Sync
+CCP -->> -Device : Register Info
+end
 
+rect rgba(0, 0, 255, .1)
+Note over CCP,LS: License Activation
+opt Device Activate
+Device ->> CCP: Activate
+end
+CCP ->> +LS : Activate : POST /applickeys/{applickeys}/activation-app-lic
+Note right of LS: Search Available Product Key
+LS -->> -CCP : Available Product Key
+
+CCP ->> +LS : Generate Product key
+LS -->> -CCP : Available Product Key
+
+CCP ->> +LS : Append Product Key to Client License
+LS -->> -CCP : License
+
+CCP ->> App : Sync w/ License
+
+end
 ```
