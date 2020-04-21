@@ -51,7 +51,7 @@ description: >
 > * **Authorization** : "CCP-HMAC-KEY 607cc2f7-91e0-48cf-9a53-bd7353887d5c:ZaSZYfK7SAFr39Jga2zbNtLCIsz7sb++b0DvVnvRXe8=:fd30ad92-02fb-4ca4-933e-d6b76d2c9b60:1565346446"
 >
 
-### HMAC Sample Code C#
+#### HMAC Sample Code C#
 ```csharp
 /// <summary>
 /// HMAC 驗證 Header 產生方式
