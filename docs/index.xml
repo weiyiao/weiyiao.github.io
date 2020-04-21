@@ -692,7 +692,7 @@ Resource Server--&amp;gt;&amp;gt;Client: 5. Response with Data
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;hmac-sample-code-c&#34;&gt;HMAC Sample Code C#&lt;/h3&gt;
+&lt;h4 id=&#34;hmac-sample-code-c&#34;&gt;HMAC Sample Code C#&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// &amp;lt;summary&amp;gt;
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// HMAC 驗證 Header 產生方式
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// &amp;lt;/summary&amp;gt;
