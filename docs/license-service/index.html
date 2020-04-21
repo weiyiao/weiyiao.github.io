@@ -361,7 +361,7 @@ participant LS as License Service
 participant App as Other App
 
 rect rgba(0, 0, 255, .1)
-Note over Device,LS: Device Register
+Note over Device,App: Device Register
 Device -&gt;&gt; +CCP : Register
 CCP -&gt;&gt; +LS : Register Client : POST /applickeys
 LS --&gt;&gt; -CCP : Trial License enable
@@ -370,7 +370,7 @@ CCP --&gt;&gt; -Device : Register Info
 end
 
 rect rgba(0, 0, 255, .1)
-Note over CCP,LS: License Activation
+Note over Device,App: License Activation
 opt Device Activate
 Device -&gt;&gt; CCP: Activate
 end
