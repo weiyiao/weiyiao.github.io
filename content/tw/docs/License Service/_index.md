@@ -9,7 +9,6 @@ description: >
 
 ### License flows
 
-#### Device Register
 ```mermaid
 sequenceDiagram
 
